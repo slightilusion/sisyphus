@@ -2,7 +2,7 @@
 
 # 延伸阅读
 
-CREATE TABLE `checker_proxy` (
+```CREATE TABLE `checker_proxy` (
   `id` int(16) NOT NULL,
   `local_id` int(16) DEFAULT NULL,
   `report_id` varchar(64) DEFAULT NULL,
@@ -26,5 +26,5 @@ CREATE TABLE `checker_proxy` (
   `from_cache` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `timeout` (`timeout`,`addr_geo_country`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;```
 
