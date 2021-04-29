@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.yelcat.sisyphus.mapper.CheckerProxyMapper">
+  <resultMap id="BaseResultMap" type="cc.yelcat.sisyphus.entity.CheckerProxy">
+    <!--@mbg.generated-->
+    <!--@Table checker_proxy-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="local_id" jdbcType="INTEGER" property="localId" />
+    <result column="report_id" jdbcType="VARCHAR" property="reportId" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="kind" jdbcType="INTEGER" property="kind" />
+    <result column="timeout" jdbcType="INTEGER" property="timeout" />
+    <result column="cookie" jdbcType="VARCHAR" property="cookie" />
+    <result column="referer" jdbcType="VARCHAR" property="referer" />
+    <result column="post" jdbcType="VARCHAR" property="post" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="addr_geo_iso" jdbcType="VARCHAR" property="addrGeoIso" />
+    <result column="addr_geo_country" jdbcType="VARCHAR" property="addrGeoCountry" />
+    <result column="addr_geo_city" jdbcType="VARCHAR" property="addrGeoCity" />
+    <result column="ip_geo_iso" jdbcType="VARCHAR" property="ipGeoIso" />
+    <result column="ip_geo_country" jdbcType="VARCHAR" property="ipGeoCountry" />
+    <result column="ip_geo_city" jdbcType="VARCHAR" property="ipGeoCity" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="skip" jdbcType="VARCHAR" property="skip" />
+    <result column="from_cache" jdbcType="VARCHAR" property="fromCache" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, local_id, report_id, addr, `type`, kind, timeout, cookie, referer, post, ip, 
+    addr_geo_iso, addr_geo_country, addr_geo_city, ip_geo_iso, ip_geo_country, ip_geo_city, 
+    created_at, updated_at, skip, from_cache
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from checker_proxy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from checker_proxy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cc.yelcat.sisyphus.entity.CheckerProxy">
+    <!--@mbg.generated-->
+    insert into checker_proxy (id, local_id, report_id, 
+      addr, `type`, kind, timeout, 
+      cookie, referer, post, 
+      ip, addr_geo_iso, addr_geo_country, 
+      addr_geo_city, ip_geo_iso, ip_geo_country, 
+      ip_geo_city, created_at, updated_at, 
+      skip, from_cache)
+    values (#{id,jdbcType=INTEGER}, #{localId,jdbcType=INTEGER}, #{reportId,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{kind,jdbcType=INTEGER}, #{timeout,jdbcType=INTEGER}, 
+      #{cookie,jdbcType=VARCHAR}, #{referer,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{addrGeoIso,jdbcType=VARCHAR}, #{addrGeoCountry,jdbcType=VARCHAR}, 
+      #{addrGeoCity,jdbcType=VARCHAR}, #{ipGeoIso,jdbcType=VARCHAR}, #{ipGeoCountry,jdbcType=VARCHAR}, 
+      #{ipGeoCity,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{skip,jdbcType=VARCHAR}, #{fromCache,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cc.yelcat.sisyphus.entity.CheckerProxy">
+    <!--@mbg.generated-->
+    insert into checker_proxy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="localId != null">
+        local_id,
+      </if>
+      <if test="reportId != null">
+        report_id,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="kind != null">
+        kind,
+      </if>
+      <if test="timeout != null">
+        timeout,
+      </if>
+      <if test="cookie != null">
+        cookie,
+      </if>
+      <if test="referer != null">
+        referer,
+      </if>
+      <if test="post != null">
+        post,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="addrGeoIso != null">
+        addr_geo_iso,
+      </if>
+      <if test="addrGeoCountry != null">
+        addr_geo_country,
+      </if>
+      <if test="addrGeoCity != null">
+        addr_geo_city,
+      </if>
+      <if test="ipGeoIso != null">
+        ip_geo_iso,
+      </if>
+      <if test="ipGeoCountry != null">
+        ip_geo_country,
+      </if>
+      <if test="ipGeoCity != null">
+        ip_geo_city,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="skip != null">
+        skip,
+      </if>
+      <if test="fromCache != null">
+        from_cache,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="localId != null">
+        #{localId,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null">
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="kind != null">
+        #{kind,jdbcType=INTEGER},
+      </if>
+      <if test="timeout != null">
+        #{timeout,jdbcType=INTEGER},
+      </if>
+      <if test="cookie != null">
+        #{cookie,jdbcType=VARCHAR},
+      </if>
+      <if test="referer != null">
+        #{referer,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="addrGeoIso != null">
+        #{addrGeoIso,jdbcType=VARCHAR},
+      </if>
+      <if test="addrGeoCountry != null">
+        #{addrGeoCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="addrGeoCity != null">
+        #{addrGeoCity,jdbcType=VARCHAR},
+      </if>
+      <if test="ipGeoIso != null">
+        #{ipGeoIso,jdbcType=VARCHAR},
+      </if>
+      <if test="ipGeoCountry != null">
+        #{ipGeoCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="ipGeoCity != null">
+        #{ipGeoCity,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skip != null">
+        #{skip,jdbcType=VARCHAR},
+      </if>
+      <if test="fromCache != null">
+        #{fromCache,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cc.yelcat.sisyphus.entity.CheckerProxy">
+    <!--@mbg.generated-->
+    update checker_proxy
+    <set>
+      <if test="localId != null">
+        local_id = #{localId,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null">
+        report_id = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="kind != null">
+        kind = #{kind,jdbcType=INTEGER},
+      </if>
+      <if test="timeout != null">
+        timeout = #{timeout,jdbcType=INTEGER},
+      </if>
+      <if test="cookie != null">
+        cookie = #{cookie,jdbcType=VARCHAR},
+      </if>
+      <if test="referer != null">
+        referer = #{referer,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        post = #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="addrGeoIso != null">
+        addr_geo_iso = #{addrGeoIso,jdbcType=VARCHAR},
+      </if>
+      <if test="addrGeoCountry != null">
+        addr_geo_country = #{addrGeoCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="addrGeoCity != null">
+        addr_geo_city = #{addrGeoCity,jdbcType=VARCHAR},
+      </if>
+      <if test="ipGeoIso != null">
+        ip_geo_iso = #{ipGeoIso,jdbcType=VARCHAR},
+      </if>
+      <if test="ipGeoCountry != null">
+        ip_geo_country = #{ipGeoCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="ipGeoCity != null">
+        ip_geo_city = #{ipGeoCity,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skip != null">
+        skip = #{skip,jdbcType=VARCHAR},
+      </if>
+      <if test="fromCache != null">
+        from_cache = #{fromCache,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cc.yelcat.sisyphus.entity.CheckerProxy">
+    <!--@mbg.generated-->
+    update checker_proxy
+    set local_id = #{localId,jdbcType=INTEGER},
+      report_id = #{reportId,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      kind = #{kind,jdbcType=INTEGER},
+      timeout = #{timeout,jdbcType=INTEGER},
+      cookie = #{cookie,jdbcType=VARCHAR},
+      referer = #{referer,jdbcType=VARCHAR},
+      post = #{post,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      addr_geo_iso = #{addrGeoIso,jdbcType=VARCHAR},
+      addr_geo_country = #{addrGeoCountry,jdbcType=VARCHAR},
+      addr_geo_city = #{addrGeoCity,jdbcType=VARCHAR},
+      ip_geo_iso = #{ipGeoIso,jdbcType=VARCHAR},
+      ip_geo_country = #{ipGeoCountry,jdbcType=VARCHAR},
+      ip_geo_city = #{ipGeoCity,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      skip = #{skip,jdbcType=VARCHAR},
+      from_cache = #{fromCache,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2021-04-28-->
+  <insert id="insertList">
+    INSERT INTO checker_proxy(
+    id,
+    local_id,
+    report_id,
+    addr,
+    type,
+    kind,
+    timeout,
+    cookie,
+    referer,
+    post,
+    ip,
+    addr_geo_iso,
+    addr_geo_country,
+    addr_geo_city,
+    ip_geo_iso,
+    ip_geo_country,
+    ip_geo_city,
+    created_at,
+    updated_at,
+    skip,
+    from_cache
+    )VALUES
+    <foreach collection="list" item="element" index="index" separator=",">
+      (
+      #{element.id,jdbcType=INTEGER},
+      #{element.localId,jdbcType=INTEGER},
+      #{element.reportId,jdbcType=VARCHAR},
+      #{element.addr,jdbcType=VARCHAR},
+      #{element.type,jdbcType=INTEGER},
+      #{element.kind,jdbcType=INTEGER},
+      #{element.timeout,jdbcType=INTEGER},
+      #{element.cookie,jdbcType=VARCHAR},
+      #{element.referer,jdbcType=VARCHAR},
+      #{element.post,jdbcType=VARCHAR},
+      #{element.ip,jdbcType=VARCHAR},
+      #{element.addrGeoIso,jdbcType=VARCHAR},
+      #{element.addrGeoCountry,jdbcType=VARCHAR},
+      #{element.addrGeoCity,jdbcType=VARCHAR},
+      #{element.ipGeoIso,jdbcType=VARCHAR},
+      #{element.ipGeoCountry,jdbcType=VARCHAR},
+      #{element.ipGeoCity,jdbcType=VARCHAR},
+      #{element.createdAt,jdbcType=TIMESTAMP},
+      #{element.updatedAt,jdbcType=TIMESTAMP},
+      #{element.skip,jdbcType=VARCHAR},
+      #{element.fromCache,jdbcType=VARCHAR}
+      )
+    </foreach>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2021-04-29-->
+  <delete id="deleteAll">
+        delete from checker_proxy
+        where 1=1
+    </delete>
+</mapper>

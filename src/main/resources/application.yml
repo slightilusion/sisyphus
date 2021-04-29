@@ -1,0 +1,65 @@
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+# 应用名称
+spring:
+  application:
+   name: sisyphus
+
+  datasource:
+    # 数据库用户名&密码：
+    username: root
+    password:
+    # 数据库连接地址
+    url: jdbc:mysql://127.0.0.1:3306/yelcat?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    # 数据库驱动：
+    driver-class-name: com.mysql.cj.jdbc.Driver
+      # Hikari 连接池配置
+      # 最小空闲连接数量
+    hikari:
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+  jackson:
+    #日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    #设置空如何序列化
+    default-property-inclusion: non_null
+    serialization:
+      #格式化输出
+      indent_output: true
+      #忽略无法转换的对象
+      fail_on_empty_beans: false
+    deserialization:
+      #允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false
+    parser:
+      #允许出现特殊字符和转义符
+      allow_unquoted_control_chars: true
+      #允许出现单引号
+      allow_single_quotes: true
+
+
+#下面这些内容是为了让MyBatis映射
+mybatis:
+  #指定Mybatis的Mapper文件
+ mapper-locations: cc/yelcat/sisyphus/mapper/*xml
+  #指定Mybatis的实体目录
+ type-aliases-package: cc.yelcat.sisyphus.entity
+
+
+
