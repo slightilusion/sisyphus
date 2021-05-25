@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.yelcat.sisyphus.mapper.TypechoContentsMapper">
+  <resultMap id="BaseResultMap" type="cc.yelcat.sisyphus.entity.TypechoContents">
+    <!--@mbg.generated-->
+    <!--@Table typecho_contents-->
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="slug" jdbcType="VARCHAR" property="slug" />
+    <result column="created" jdbcType="INTEGER" property="created" />
+    <result column="modified" jdbcType="INTEGER" property="modified" />
+    <result column="text" jdbcType="LONGVARCHAR" property="text" />
+    <result column="order" jdbcType="INTEGER" property="order" />
+    <result column="authorId" jdbcType="INTEGER" property="authorid" />
+    <result column="template" jdbcType="VARCHAR" property="template" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="commentsNum" jdbcType="INTEGER" property="commentsnum" />
+    <result column="allowComment" jdbcType="CHAR" property="allowcomment" />
+    <result column="allowPing" jdbcType="CHAR" property="allowping" />
+    <result column="allowFeed" jdbcType="CHAR" property="allowfeed" />
+    <result column="parent" jdbcType="INTEGER" property="parent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cid, title, slug, created, modified, `text`, `order`, authorId, `template`, `type`, 
+    `status`, `password`, commentsNum, allowComment, allowPing, allowFeed, parent
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from typecho_contents
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from typecho_contents
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="cid" keyProperty="cid" parameterType="cc.yelcat.sisyphus.entity.TypechoContents" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into typecho_contents (title, slug, created, 
+      modified, `text`, `order`, 
+      authorId, `template`, `type`, 
+      `status`, `password`, commentsNum, 
+      allowComment, allowPing, allowFeed, 
+      parent)
+    values (#{title,jdbcType=VARCHAR}, #{slug,jdbcType=VARCHAR}, #{created,jdbcType=INTEGER}, 
+      #{modified,jdbcType=INTEGER}, #{text,jdbcType=LONGVARCHAR}, #{order,jdbcType=INTEGER}, 
+      #{authorid,jdbcType=INTEGER}, #{template,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{commentsnum,jdbcType=INTEGER}, 
+      #{allowcomment,jdbcType=CHAR}, #{allowping,jdbcType=CHAR}, #{allowfeed,jdbcType=CHAR}, 
+      #{parent,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="cid" keyProperty="cid" parameterType="cc.yelcat.sisyphus.entity.TypechoContents" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into typecho_contents
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="slug != null">
+        slug,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="modified != null">
+        modified,
+      </if>
+      <if test="text != null">
+        `text`,
+      </if>
+      <if test="order != null">
+        `order`,
+      </if>
+      <if test="authorid != null">
+        authorId,
+      </if>
+      <if test="template != null">
+        `template`,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="commentsnum != null">
+        commentsNum,
+      </if>
+      <if test="allowcomment != null">
+        allowComment,
+      </if>
+      <if test="allowping != null">
+        allowPing,
+      </if>
+      <if test="allowfeed != null">
+        allowFeed,
+      </if>
+      <if test="parent != null">
+        parent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="slug != null">
+        #{slug,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=INTEGER},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=INTEGER},
+      </if>
+      <if test="text != null">
+        #{text,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=INTEGER},
+      </if>
+      <if test="authorid != null">
+        #{authorid,jdbcType=INTEGER},
+      </if>
+      <if test="template != null">
+        #{template,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="commentsnum != null">
+        #{commentsnum,jdbcType=INTEGER},
+      </if>
+      <if test="allowcomment != null">
+        #{allowcomment,jdbcType=CHAR},
+      </if>
+      <if test="allowping != null">
+        #{allowping,jdbcType=CHAR},
+      </if>
+      <if test="allowfeed != null">
+        #{allowfeed,jdbcType=CHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cc.yelcat.sisyphus.entity.TypechoContents">
+    <!--@mbg.generated-->
+    update typecho_contents
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="slug != null">
+        slug = #{slug,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=INTEGER},
+      </if>
+      <if test="modified != null">
+        modified = #{modified,jdbcType=INTEGER},
+      </if>
+      <if test="text != null">
+        `text` = #{text,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="order != null">
+        `order` = #{order,jdbcType=INTEGER},
+      </if>
+      <if test="authorid != null">
+        authorId = #{authorid,jdbcType=INTEGER},
+      </if>
+      <if test="template != null">
+        `template` = #{template,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="commentsnum != null">
+        commentsNum = #{commentsnum,jdbcType=INTEGER},
+      </if>
+      <if test="allowcomment != null">
+        allowComment = #{allowcomment,jdbcType=CHAR},
+      </if>
+      <if test="allowping != null">
+        allowPing = #{allowping,jdbcType=CHAR},
+      </if>
+      <if test="allowfeed != null">
+        allowFeed = #{allowfeed,jdbcType=CHAR},
+      </if>
+      <if test="parent != null">
+        parent = #{parent,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cc.yelcat.sisyphus.entity.TypechoContents">
+    <!--@mbg.generated-->
+    update typecho_contents
+    set title = #{title,jdbcType=VARCHAR},
+      slug = #{slug,jdbcType=VARCHAR},
+      created = #{created,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=INTEGER},
+      `text` = #{text,jdbcType=LONGVARCHAR},
+      `order` = #{order,jdbcType=INTEGER},
+      authorId = #{authorid,jdbcType=INTEGER},
+      `template` = #{template,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      commentsNum = #{commentsnum,jdbcType=INTEGER},
+      allowComment = #{allowcomment,jdbcType=CHAR},
+      allowPing = #{allowping,jdbcType=CHAR},
+      allowFeed = #{allowfeed,jdbcType=CHAR},
+      parent = #{parent,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

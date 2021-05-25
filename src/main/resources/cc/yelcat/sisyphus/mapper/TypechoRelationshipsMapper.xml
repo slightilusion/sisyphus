@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.yelcat.sisyphus.mapper.TypechoRelationshipsMapper">
+  <resultMap id="BaseResultMap" type="cc.yelcat.sisyphus.entity.TypechoRelationships">
+    <!--@mbg.generated-->
+    <!--@Table typecho_relationships-->
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <id column="mid" jdbcType="INTEGER" property="mid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cid, mid
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from typecho_relationships
+    where cid = #{cid,jdbcType=INTEGER}
+      and mid = #{mid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cc.yelcat.sisyphus.entity.TypechoRelationships">
+    <!--@mbg.generated-->
+    insert into typecho_relationships (cid, mid)
+    values (#{cid,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cc.yelcat.sisyphus.entity.TypechoRelationships">
+    <!--@mbg.generated-->
+    insert into typecho_relationships
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="mid != null">
+        mid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="mid != null">
+        #{mid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
